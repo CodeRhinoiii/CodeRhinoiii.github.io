@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Letter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #e74c3c;
+            text-align: center;
+        }
+        p {
+            line-height: 1.6;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            display: block; /* Change button display to block */
+            margin: 0 auto; /* Center horizontally */
+}
+        }
+        #noBtn.shrinking {
+            transform: scale(0);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Bakit ang ganda mo?!</h1>
+    <button id="noBtn" onclick="shrinkNoButton()">Hindeee</button>
+    <button id="yesBtn" onclick="showConfirmation()">Hmm oo!</button>
+    <button id="confirmBtn" style="display: none;" onclick="showReward()">Weeeehhhh?</button>
+    <button id="button1" style="display: none;" onclick="handleButtonPress(this)">Di ngaaaa</button>
+    <button id="button2" style="display: none;" onclick="handleButtonPress(this)">mas maganda pa ki lana</button>
+    <button id="button3" style="display: none;" onclick="handleButtonPress(this)">Legit like ngl. OMG</button>
+    <div id="reward" style="display: none;">
+        <h1>Para sa'yo... ♡♡♡ </h1>
+        <div id="loveLetter">
+            <p>​</p>
+            <p>Translucent Heart</p>
+            <p>​</p>
+            <p>In your smile, a world aglow,</p> 
+            <p>In your eyes, peaceful flow.</p> 
+            <p>Hand in hand, our journey's trace,</p> 
+            <p>Towards a future, filled with grace.</p>
+            <p>​</p>
+            <p>Your laughter, a melody divine,</p>
+            <p>In your embrace, all futures align.</p>
+            <p>Together we walk, through life's embrace,</p>
+            <p>In your presence, I find my space.</p>
+            <p>​</p>
+            <p>:)</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    let buttonPressCount = 0;
+
+    function shrinkNoButton() {
+        document.getElementById("noBtn").classList.add("shrinking");
+        setTimeout(resetNoButton, 300);
+    }
+
+    function resetNoButton() {
+        document.getElementById("noBtn").classList.remove("shrinking");
+    }
+
+    function showConfirmation() {
+        document.getElementById("noBtn").style.display = "none";
+        document.getElementById("yesBtn").style.display = "none";
+        document.getElementById("confirmBtn").style.display = "block";
+    }
+
+    function showReward() {
+        document.getElementById("confirmBtn").style.display = "none";
+        document.getElementById("button1").style.display = "block";
+    }
+
+    function handleButtonPress(button) {
+        button.style.display = "none";
+        buttonPressCount++;
+        if (buttonPressCount === 1) {
+            document.getElementById("button2").style.display = "block";
+        } else if (buttonPressCount === 2) {
+            document.getElementById("button3").style.display = "block";
+        } else if (buttonPressCount === 3) {
+            document.getElementById("reward").style.display = "block";
+        }
+    }
+</script>
+
+</body>
+</html>
